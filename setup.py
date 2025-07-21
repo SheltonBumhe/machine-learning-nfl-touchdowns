@@ -15,7 +15,7 @@ import platform
 def print_banner():
     """Print the project banner."""
     print("=" * 60)
-    print("🏈 NFL QB Touchdown Predictor - Setup")
+    print(" NFL QB Touchdown Predictor - Setup")
     print("=" * 60)
     print("A database-driven machine learning project for predicting")
     print("NFL quarterback touchdowns using historical data.")
@@ -27,11 +27,11 @@ def check_python_version():
     
     version = sys.version_info
     if version.major < 3 or (version.major == 3 and version.minor < 8):
-        print("❌ Python 3.8 or higher is required!")
+        print("Python 3.8 or higher is required!")
         print(f"Current version: {version.major}.{version.minor}.{version.micro}")
         return False
     
-    print(f"✅ Python {version.major}.{version.minor}.{version.micro} - OK")
+    print(f" Python {version.major}.{version.minor}.{version.micro} - OK")
     return True
 
 def install_requirements():
@@ -42,15 +42,15 @@ def install_requirements():
         subprocess.check_call([
             sys.executable, "-m", "pip", "install", "-r", "requirements.txt"
         ])
-        print("✅ Requirements installed successfully!")
+        print(" Requirements installed successfully!")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ Error installing requirements: {e}")
+        print(f"Error installing requirements: {e}")
         return False
 
 def check_data_files():
     """Check if data files exist."""
-    print("\n📁 Checking data files...")
+    print("\n Checking data files...")
     
     required_files = [
         "data/raw/Basic_Stats.csv",
@@ -63,16 +63,16 @@ def check_data_files():
         if not os.path.exists(file_path):
             missing_files.append(file_path)
         else:
-            print(f"✅ {file_path}")
+            print(f"{file_path}")
     
     if missing_files:
-        print("❌ Missing data files:")
+        print(" Missing data files:")
         for file_path in missing_files:
             print(f"   - {file_path}")
         print("\nPlease ensure all CSV files are in the data/raw/ directory.")
         return False
     
-    print("✅ All data files found!")
+    print("All data files found!")
     return True
 
 def run_initial_setup():
@@ -86,31 +86,31 @@ def run_initial_setup():
         ], capture_output=True, text=True)
         
         if result.returncode == 0:
-            print("✅ Project setup completed successfully!")
+            print(" Project setup completed successfully!")
             return True
         else:
-            print("❌ Project setup failed!")
+            print("Project setup failed!")
             print("Error output:")
             print(result.stderr)
             return False
             
     except Exception as e:
-        print(f"❌ Error during setup: {e}")
+        print(f" Error during setup: {e}")
         return False
 
 def show_next_steps():
     """Show next steps for the user."""
     print("\n" + "=" * 60)
-    print("🎉 Setup Complete!")
+    print("� Setup Complete!")
     print("=" * 60)
     print("\nNext steps:")
-    print("1. 🚀 Launch the app:")
+    print("1.  Launch the app:")
     print("   python main.py --app")
-    print("\n2. 📊 Check project status:")
+    print("\n2.  Check project status:")
     print("   python main.py --status")
-    print("\n3. 🔄 Re-run setup (if needed):")
+    print("\n3.  Re-run setup (if needed):")
     print("   python main.py --workflow --force-reload")
-    print("\n4. 📖 Read the README for more information")
+    print("\n4.  Read the README for more information")
     print("\nThe app will be available at: http://localhost:8501")
     print("=" * 60)
 
